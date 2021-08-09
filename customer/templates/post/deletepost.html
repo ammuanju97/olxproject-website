@@ -1,0 +1,40 @@
+{% extends 'home.html' %}
+{% block title %}Product Details{% endblock title%}
+{% block content %}
+{% if msg %}
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+    <strong>{{msg}}</strong> 
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+{% endif %}
+<h4> <center>  <i class="fas fa-user-plus"></i> Product Delete Form  </center> </h4> 
+<div class="card-body">
+    
+ 
+
+
+    
+    <form method="post">{% csrf_token %}
+     
+ 
+        <p>Are you sure you want to delete "{{ object }}"?</p>
+         
+         
+        <center>   <a href="{% url 'viewpost' %}">Back</a>&nbsp;&nbsp;<input type="submit" value="Confirm">
+            </center>
+        </form> 
+    
+{% endblock content %}
+    
+
+
+
+
+
+
+
+
+
+
+
+

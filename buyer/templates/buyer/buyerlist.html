@@ -1,0 +1,83 @@
+<html>
+    <head>
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <!------ Include the above in your HEAD tag ---------->
+</head>
+<body>
+    
+
+    
+    
+    <div class="container">
+        <div class="row mb-4">
+            <div class="col-12 text-center pt-3">
+                <h1>Buyers List</h1>
+                <p>Here the list of interested buyers to buy the products</p>
+                <h4>Approve?</h4>
+            </div>
+        </div>
+        <div class="row justify-content-md-center mb-4">
+            <div class="col-md-6">
+                
+                <!--start code-->
+                <div class="widget">
+                  <!-- widget title -->
+                  <div class="mb-3 text-center">
+                    <h4>
+                      <span></span>
+                    </h4>
+                  </div>
+                  <!-- widget content -->
+                  <table class="table small mb-5" >
+                    <thead class="thead-light">
+                      <tr>
+                       
+                        <!-- <th scope="col">Id</th> -->
+                        <th scope="col">Buyer Name</th>
+                        <th scope="col">Product Name</th>
+                        <th scope="col">Buyers price</th>
+                        <th class="col">Status</th>
+                        
+                      </tr>
+                    </thead>
+                    <tbody>
+                        {% for buyers in buyers %}
+                      <tr class="bg-success text-white">
+                        
+                        <td>{{buyers.buyer_name}}</td>
+                        <td>{{buyers.product_name}}</td>
+                        <td>Rs.{{buyers.buyer_price}}</td>
+                    
+                        <td>
+                            {% if buyers.buy_status %}
+                            <p>
+                                Approved
+                            </p>
+                         
+                           
+                                {% else %}
+                            <a href="{% url 'buyaccept' buyers.id %}">
+                         <button type="submit">   <small class="badge badge-warning">Pending</small></button> 
+                        </a>
+                         {% endif %}
+                        </td>
+                        {% endfor %}
+                      </tr>
+                      
+                <!--end code-->
+                
+            </div>
+        </div>
+    </div>
+    </div>
+</div>
+        <div class="row mb-4">
+            <div class="col-12 text-center">
+                
+            </div>
+        </div>
+    </div>
+</body>
+</html>

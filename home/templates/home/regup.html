@@ -1,0 +1,36 @@
+  {% extends 'base.html' %}
+
+      {% block title %} Signup{% endblock title%}
+
+    {% block content %}
+
+    
+                  {% if messages %}
+                  {% for message in messages %}
+                  <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    <strong>{{message}}</strong> 
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                  </div>
+                  {% endfor %}
+                  {% endif %}
+              <center>  <i class="fas fa-user-plus"></i> <h4>Registration Form </h4> </center> 
+              </div>
+              <div class="card-body">
+                  
+                  <form action="{% url 'signup' %}" method="POST">
+                      {% csrf_token %}
+              {% for fm in form %}
+              {{fm.label_tag}}
+              {{fm}}
+            
+              {{fm.errors}}
+              {% endfor %}<br>
+            {{addform.as_p}}
+                <center> <button type="submit" value="signup" class="btn btn-primary">Signup</button></center> 
+                <a class="nav-link active" aria-current="page" href="{% url 'loginpage' %}"><font color=black>Already registered  </font>Login</Login></a></ul> 
+              </form>
+              
+
+
+
+    {% endblock %}

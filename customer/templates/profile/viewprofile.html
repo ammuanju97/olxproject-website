@@ -1,0 +1,25 @@
+{% extends 'home.html' %}
+{% block title %}view profile{% endblock title%}
+{% block content %}
+{% if msg %}
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+    <strong>{{msg}}</strong> 
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+{% endif %}
+<h4> <center>  <i class="fas fa-user-plus"></i> Details Form  </center> </h4> 
+<div class="card-body">
+
+Username:  {{form.user}}<br>
+First Name:  {{user.first_name}}<br>
+Last Name:  {{user.last_name}}<br>
+email Id:  {{user.email}}<br>
+MobileNo:  {{form.mobile_no}}<br>
+Address:  {{form1.address}}<br>
+State:  {{form1.state}}<br>
+city:  {{form1.city}}<br>
+pin_no:  {{form1.pin_no}}<br>
+
+      <form>
+{% endblock content %}
+    

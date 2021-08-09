@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+     {% block title %} Login{% endblock title%}
+
+  
+     {% block content %}
+                    {% if messages %}
+                    {% for message in messages %}
+                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                      <strong>{{message}}</strong> 
+                      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                    {% endfor %}
+                    {% endif %}
+                    
+                
+   <h4> <center>  <i class="fas fa-user-plus"></i> Login Form  </center> </h4> 
+                </div>
+                <div class="card-body">
+                
+                    <form action="{% url 'loginpage' %}" method="POST">
+                        {% csrf_token %}
+                 {% for fm in form %}
+                 {{fm.label_tag}}
+                 {{fm}}
+                 {{fm.errors}}
+                 {% endfor %}<br>
+                 <center> <a class="nav-link active" aria-current="page" href="{% url 'password_reset' %}">Forget Password?</a></ul>  </center>
+                  <center> <button type="submit" value="login" class="btn btn-primary">Login</button></center> 
+  <center><a class="nav-link active" aria-current="page" href="{% url 'signup' %}">          Create an account?</a></ul> 
+  </center>
+               <center>OR</center>
+              <center> <a class="btn btn-primary" href="{% url 'social:begin' 'google-oauth2' %}">
+              Login With Google
+             
+              </a> </center> </form>
+              {% endblock content %}
+    
+    
+    
+  
+

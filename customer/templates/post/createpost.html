@@ -1,0 +1,57 @@
+{% extends 'home.html' %}
+
+{% block title %} Add Product {% endblock title %}
+
+{% block content %}
+{% if msg %}
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+    <strong>{{msg}}</strong> 
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+{% endif %}
+<h4> <center>  <i class="fas fa-user-plus"></i>Product Details Form  </center> </h4> 
+<div class="card-body">
+
+    <form method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      <div class="form-field">
+        {{form.name.label_tag}}
+        Product Name
+        {{form.product_name}}
+
+    </div>
+  <div class="form-field">
+        {{form.name.label_tag}}
+        Product Description
+        {{form.description}}
+        </div>
+        <br>
+    <div class="form-field">
+      {{form.name.label_tag}}
+     Category Name
+      {{form.category}}
+       </div>
+<br>
+  <div class="form-field">
+    {{form.name.label_tag}}
+    Product Price
+    {{form.price}}
+    </div>
+<br>
+    <div class="form-field">
+      {{form.name.label_tag}}
+      TimeToPublish
+      {{form.time_to_publish}}
+  </div>
+<br>
+  <div class="form-field">
+    {{form.name.label_tag}}
+  Image
+    {{form.image}}
+</div>
+
+      <center> <button type="submit" value="submit" class="btn btn-primary">submit</button></center> 
+  </div>
+  </form>
+
+  {% endblock content %}
