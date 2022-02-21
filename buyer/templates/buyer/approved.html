@@ -5,7 +5,7 @@
   <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
   <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
   <!------ Include the above in your HEAD tag ---------->
-
+  <title>Accept</title>
   <style>
     @import url("http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css");
 
@@ -70,7 +70,8 @@
               <li class="list-group-item">Buyer Name: {{products.buyer_name}}</li>
             </ul>
             <div class="panel-footer">
-              <a class="btn btn-lg btn-block btn-success" href="{}">SELL!</a>
+    <a class="btn btn-lg btn-block btn-success" href="{% url 'sendmail' products.id  %}">SELL!</a>
+    <a class="btn btn-lg btn-block btn-success" href="{% url 'rejectmail' products.id  %}">REJECT</a>
             </div>
           </div>
         </div>

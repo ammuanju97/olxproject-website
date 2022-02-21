@@ -24,6 +24,8 @@ urlpatterns = [
     path('', include('home.urls')),
     path('', include('customer.urls')),
     path('', include('buyer.urls')),
+    path('', include('notiapp.urls')),
+    path('', include('api.urls')),
     path('', include('social_django.urls', namespace='social')),
 ]
 

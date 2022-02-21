@@ -1,5 +1,7 @@
+from asgiref.sync import async_to_sync
 from buyer.forms import BuyerForm
 from buyer.models import BuyProduct
+from channels.layers import get_channel_layer
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.models import User
 from django.contrib import messages
@@ -15,13 +17,14 @@ from django.views.generic.list import ListView
 from .forms import AddressForm, ProfileForm, AddressDetForm, CreatePostForm
 from home.models import Useradd
 from .models import PostProduct, UserAddress
+from notiapp.models import BroadcastNotifications
 from sellproject.settings import EMAIL_HOST_USER
-
+import json
 # Create your views here.
 class Userhome(View):
     def get(self,request):
         product = PostProduct.objects.all()
-        return render(request, 'customer/userhome.html', {'products' : product })
+        return render(request, 'customer/userhome.html', {'products' : product,  'room_name' : request.user.username })
    
 
 def editprofile(request):
@@ -36,7 +39,7 @@ def editprofile(request):
             form.save()
             form1.save()
             form2.save()
-            msg = 'Data has been saved'
+            msg = 'Profile Updated Successfully'
     form = ProfileForm(instance = request.user)
     form1 = AddressForm(instance = userdetails)
     form2 = AddressDetForm(instance = useraddress)
@@ -51,7 +54,7 @@ def adddetail(request):
             saveForm = form.save(commit = False)
             saveForm.user = request.user
             saveForm.save()
-            msg = 'Data has saved'
+            msg = 'Profile details added successfully'
     form = AddressDetForm()
     return render(request, 'profile/adddetails.html', {'form' : form, 'msg' : msg})
 
@@ -76,7 +79,7 @@ class CreatePost(CreateView):
             form = fm.save(commit = False)
             form.user = request.user
             form.save()
-            msg = 'data saved'
+            msg = 'Product details added successfully'
         form = CreatePostForm()
         return render(request, 'post/createpost.html', {'form' : form, 'msg' : msg})
         
@@ -122,6 +125,16 @@ class ViewMore(TemplateView):
                 form.buy_status = False
                 form.product_name = product
                 form.save()
+                channel_layer = get_channel_layer()
+                async_to_sync(channel_layer.group_send)(
+                "notification_%s" % product.user.username,
+                {
+                    'type': 'send_notification',
+                    'message': f' {request.user} , sent a buy request for your {product.product_name} !!',
+                }
+                )
+                notifications = BroadcastNotifications.objects.create(message = f'send purchase request from {request.user} for the product {product.product_name}', sent=True, to_user = seller)
+                notifications.save()
                 email = seller.email
                 subject = 'Request for Buying a product'
                 message = render_to_string('buyer/emailnoti.html', {

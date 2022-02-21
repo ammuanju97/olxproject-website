@@ -1,0 +1,70 @@
+<html>
+
+<head>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!------ Include the above in your HEAD tag ---------->
+    <title>My Order List</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row mb-4">
+            <div class="col-12 text-center pt-3">
+                <h1>Order List</h1>
+                <p>Here the list of interested products I purchased</p>
+            </div>
+        </div>
+        <div class="row justify-content-md-center mb-4">
+            <div class="col-md-6">
+                <!--start code-->
+                <div class="widget">
+                    <!-- widget title -->
+                    <div class="mb-3 text-center">
+                        <h4>
+                            <span></span>
+                        </h4>
+                    </div>
+                    <!-- widget content -->
+                    <table class="table small mb-5">
+                        <thead class="thead-light">
+                            <tr>
+                                <th scope="col">Seller Name</th>
+                                <th scope="col">Product Name</th>
+                                <th scope="col"> price</th>
+                                <th class="col">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for myorder in myorders %}
+                            <tr class="bg-success text-white">
+                                <td>{{myorder.seller_name}}</td>
+                                <td>{{myorder.product_name}}</td>
+                                <td>Rs.{{myorder.buyer_price}}</td>
+                                <td>
+                                   
+                                    {% if myorder.buy_status %}
+                                    Accepted
+                                    {% else %}
+                                    Pending
+                                    {% endif %}
+                                </td>
+                              
+
+                                {% endfor %}
+                            </tr>
+                            <!--end code-->
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="row mb-4">
+        <div class="col-12 text-center">
+        </div>
+    </div>
+    </div>
+</body>
+
+</html>
