@@ -1,4 +1,4 @@
-This is a django OlxWebsite.
+This is a django online buyer seller website.
 
 Getting Started with  a folder called sellproject
 This project was bootstrapped with the application called sellproject
