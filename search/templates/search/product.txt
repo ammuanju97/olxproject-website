@@ -1,0 +1,4 @@
+{{ object.product_name }}
+    {% for a in user%}
+        {{ a }}
+    {% endfor %}

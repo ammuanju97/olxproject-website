@@ -1,0 +1,86 @@
+<html>
+
+<head>
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+  <!------ Include the above in your HEAD tag ---------->
+  <title>Accept</title>
+  <style>
+    @import url("http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css");
+
+
+    .panel-pricing:hover {
+      box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .panel-pricing .panel-heading {
+      padding: 20px 10px;
+    }
+
+    .panel-pricing .panel-heading .fa {
+      margin-top: 10px;
+      font-size: 58px;
+    }
+
+    .panel-pricing .list-group-item {
+      color: #777777;
+      border-bottom: 1px solid rgba(250, 250, 250, 0.5);
+    }
+
+    .panel-pricing .list-group-item:last-child {
+      border-bottom-right-radius: 0px;
+      border-bottom-left-radius: 0px;
+    }
+
+    .panel-pricing .list-group-item:first-child {
+      border-top-right-radius: 0px;
+      border-top-left-radius: 0px;
+    }
+
+    .panel-pricing .panel-body {
+      background-color: #f0f0f0;
+      font-size: 40px;
+      color: #777777;
+      padding: 20px;
+      margin: 0px;
+    }
+  </style>
+</head>
+
+<body>
+  <br /><br /><br />
+
+  <!-- Plans -->
+  <section id="plans">
+    <div class="container">
+      <div class="row">
+
+        <div class="col-md-12 text-center">
+          <div class="panel panel-success panel-pricing">
+            <div class="panel-heading">
+              <i class="fa fa-desktop"></i>
+              <h3>Notifictaion from seller</h3>
+            </div>
+            <div class="panel-body text-center">
+              <p><strong>Rs.{{products.buyer_price}}</strong></p>
+            </div>
+            <ul class="list-group text-center">
+              <li class="list-group-item">Product Name: {{products.product_name}}</li>
+              <li class="list-group-item">Buyer Name: {{products.buyer_name}}</li>
+            </ul>
+            <div class="panel-footer">
+    <a class="btn btn-lg btn-block btn-success" href="{% url 'sendmail' products.id  %}">SELL!</a>
+    <a class="btn btn-lg btn-block btn-success" href="{% url 'rejectmail' products.id  %}">REJECT</a>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </section>
+  <!-- /Plans -->
+</body>
+
+</html>

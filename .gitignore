@@ -1,0 +1,4 @@
+.env
+media
+migrations
+db.sqlite3

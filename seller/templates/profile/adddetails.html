@@ -1,0 +1,25 @@
+{% extends 'home.html' %}
+{% block title %}Addittional Details{% endblock title%}
+{% block content %}
+{% if msg %}
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+    <strong>{{msg}}</strong> 
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+{% endif %}
+<h4> <center>  <i class="fas fa-user-plus"></i>Additional Details Form  </center> </h4> 
+<div class="card-body">
+
+    <form method="post">
+      {% csrf_token %}
+      {{form.label_tag}}
+      {{form.as_p}}
+   
+      <center> <button type="submit" value="submit" class="btn btn-primary">submit</button></center> 
+  </div>
+  </form>
+  <form>
+  
+ 
+    {% endblock content %}
+    

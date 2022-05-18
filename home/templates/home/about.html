@@ -1,0 +1,141 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<hea<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<meta name="description" content="" />
+<meta name="author" content="" />
+<title>Seller Daily {% block title %}{% endblock%}</title>
+<!-- Favicon-->
+<link rel="icon" type="image/x-icon" href="{% static 'asssts/favicon.ico' %}" />
+<!-- Bootstrap icons-->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+<!-- Core theme CSS (includes Bootstrap)-->
+<link href="{% static 'css/styles.css' %}" rel="stylesheet" />
+<nav class="navbar navbar-expand-lg navbar-light " style="background-color:  #0dcaf0">
+    <div class="container px-4 px-lg-5">
+        <a class="navbar-brand" href="{% url 'homeview' %}">Seller Daily</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+                <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'homeview' %}">Home</a></li>
+                <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'aboutus' %}">About</a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link active dropdown-toggle" id="navbarDropdown" aria-current="page" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Featured Products</a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="{% url 'allproducts' %}">All Products</a></li>
+                        <li><hr class="dropdown-divider" /></li>
+                        <li><a class="dropdown-item" href="{% url 'popularitem' %}">Popular Items</a></li>
+                        <li><a class="dropdown-item" href="{% url 'newarrival' %}">New Arrivals</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <form class="d-flex">
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+                <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'signup' %}">Register</a></li>
+               
+            <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'loginpage' %}">Login</a></li>
+        </ul>     
+        </div>
+                <button class="btn btn-outline-dark" type="submit">
+                    <i class="bi-cart-fill me-1"></i>
+                    Cart
+                    <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
+                </button>
+            </form>
+        </div>
+    </div>
+</nav>
+
+
+<body>
+<section class="py-4">
+
+</section>
+<section id="about" class="py-4">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8">
+          <h2>We Search For The Perfect </h2>
+          <p class="lead">Welcome!</p>
+       
+          <p class="mt-4">We are happliy to invite you to the wonder of large selling and buying any kind of products.
+              We providing more quality of products as per customer choices !!!!.
+              <br>
+              Welcome to the world of shopping..</p>
+        </div>
+        <div class="col-md-4">
+          <div class="card">
+            <img src="{% static 'images/img13.jpeg' %}" alt="">
+            <div class="card-body">
+              <h5 class="card-title"></h5>
+              <h6 class="text-secondary"></h6>
+              <p class="card-text">
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="py-4">
+
+</section>
+  <!-- Work -->
+  <section id="work" class="bg-dark text-white text-center">
+    <h2 class="display-4">We Work For You</h2>
+    <h4>  We work for selling and buying good quality products !</h4>
+    <hr>
+    
+  </section>
+
+
+  <!-- Team -->
+  <section id="team" class="py-5">
+    <div class="container">
+      <h2 class="text-center">Our Team</h2>
+      <div class="row text-center">
+        <div class="col-md-4">
+          <img src="{% static 'images/img15.jpeg' %}" alt="" class="rounded-circle mb-3">
+          <h4>Noah</h4>
+          <p class="text-success">
+            <i class="fas fa-award text-success mb-3"></i> CEO</p>
+          <hr>
+          <p>
+            <i class="fas fa-phone"></i> (555)-555-4444</p>
+          <p>
+            <i class="fas fa-envelope-open"></i> noah@sellerdaily.com</p>
+        </div>
+
+        <div class="col-md-4">
+          <img src="{% static 'images/img14.jpeg' %}" alt="" class="rounded-circle mb-3">
+          <h4>Charlotte</h4>
+          <p class="text-success">HR</p>
+          <hr>
+          <p>
+            <i class="fas fa-phone"></i> (444)-444-8888</p>
+          <p>
+            <i class="fas fa-envelope-open"></i> charlotte@sellerdaily.com</p>
+        </div>
+
+        <div class="col-md-4">
+          <img src="{% static 'images/img15.jpeg' %}" alt="" class="rounded-circle mb-3">
+          <h4>	Elijah</h4>
+          <p class="text-success">GM</p>
+          <hr>
+          <p>
+            <i class="fas fa-phone"></i> (333)-333-2222</p>
+          <p>
+            <i class="fas fa-envelope-open"></i> elijah@sellerdaily.com</p>
+        </div>
+      </div>
+    </div>
+  </section>
+   <!-- Footer-->
+<footer class="py-5 bg-dark">
+    <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Your Website 2021</p></div>
+    </footer>
+
+</body>
+</html>
